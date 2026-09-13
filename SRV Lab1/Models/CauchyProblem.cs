@@ -10,7 +10,7 @@ namespace SRV_Lab1.Models
     /// Contine toate datele de intrare ale problemei Cauchy:
     /// du/dx = f(x, u), cu u(x0) = u0, pe intervalul [x0, xEnd], cu pasul h.
     /// </summary>
-    internal class CauchyProblem
+    public class CauchyProblem
     {
         public string EquationText { get; set; }
         public double X0 { get; set; }
