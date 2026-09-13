@@ -188,6 +188,7 @@
             btnCalculate.TabIndex = 14;
             btnCalculate.Text = "Calculeaza";
             btnCalculate.UseVisualStyleBackColor = true;
+            btnCalculate.Click += btnCalculate_Click;
             // 
             // dgvResults
             // 
