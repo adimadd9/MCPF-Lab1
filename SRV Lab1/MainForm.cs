@@ -12,9 +12,12 @@ namespace SRV_Lab1
             InitializeComponent();
         }
 
+        /// <summary>
+        ///  The procedure for reading the data and solving the Cauchy problem using the chosen method.
+        /// </summary>
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            // 1. Citim si validam input-ul
+            // Read and validate the input
             if (!double.TryParse(txtX0.Text, out double x0))
             {
                 MessageBox.Show("x0 invalid.");
@@ -46,7 +49,7 @@ namespace SRV_Lab1
                 return;
             }
 
-            // 2. Construim obiectul problemei
+            // Define the problem object
             var problem = new CauchyProblem
             {
                 EquationText = txtEquation.Text,
@@ -57,10 +60,10 @@ namespace SRV_Lab1
                 AnalyticSolutionText = txtAnalytic.Text
             };
 
-            // 3. Alegem metoda (deocamdata doar Euler, hardcodat)
+            // Choose the method (for now, only Euler, hardcoded)
             INumericMethod method = new EulerMethod();
 
-            // 4. Calculam
+            // Solving
             List<ResultPoint> results;
             try
             {
@@ -72,7 +75,7 @@ namespace SRV_Lab1
                 return;
             }
 
-            // 5. Completam solutia analitica si eroarea, daca exista
+            // Complet analytical solusion if exist
             if (problem.HasAnalyticSolution)
             {
                 foreach (var point in results)
@@ -83,18 +86,16 @@ namespace SRV_Lab1
                 }
             }
 
-            // 6. Afisam in tabel si grafic (le facem la pasii urmatori)
+            // Display grid with results and chart
             PopulateGrid(results, problem.HasAnalyticSolution);
             PopulateChart(results, problem.HasAnalyticSolution);
         }
 
         private void PopulateGrid(List<ResultPoint> results, bool hasAnalytic)
         {
-            // Curatam tabelul complet (coloane vechi + randuri vechi)
             dgvResults.Columns.Clear();
             dgvResults.Rows.Clear();
 
-            // Definim coloanele
             dgvResults.Columns.Add("colX", "x");
             dgvResults.Columns.Add("colApprox", "u aproximativ");
 
@@ -104,7 +105,7 @@ namespace SRV_Lab1
                 dgvResults.Columns.Add("colError", "Eroare");
             }
 
-            // Populam randurile
+            // Populate lines
             foreach (var point in results)
             {
                 if (hasAnalytic)
@@ -136,6 +137,7 @@ namespace SRV_Lab1
                 XValueType = ChartValueType.Double
             };
 
+            // Put numerical method results on chart
             foreach (var point in results)
             {
                 approxSeries.Points.AddXY(point.X, point.ApproxValue);
@@ -143,6 +145,7 @@ namespace SRV_Lab1
 
             chartResults.Series.Add(approxSeries);
 
+            // Analytical results
             if (hasAnalytic)
             {
                 var exactSeries = new Series("Analitic")
