@@ -67,7 +67,6 @@
             lblEquation.Size = new Size(106, 20);
             lblEquation.TabIndex = 0;
             lblEquation.Text = "du/dx = f(u, x):";
-            lblEquation.Click += lblEquation_Click;
             // 
             // txtEquation
             // 
@@ -84,7 +83,6 @@
             lblX0.Size = new Size(27, 20);
             lblX0.TabIndex = 2;
             lblX0.Text = "x0:";
-            lblX0.Click += label1_Click;
             // 
             // txtX0
             // 
@@ -117,7 +115,6 @@
             lblXEnd.Size = new Size(44, 20);
             lblXEnd.TabIndex = 6;
             lblXEnd.Text = "xEnd:";
-            lblXEnd.Click += label1_Click_1;
             // 
             // txtXEnd
             // 
@@ -134,7 +131,6 @@
             lblStep.Size = new Size(20, 20);
             lblStep.TabIndex = 8;
             lblStep.Text = "h:";
-            lblStep.Click += lblStep_Click;
             // 
             // txtStep
             // 
@@ -149,7 +145,6 @@
             txtAnalytic.Name = "txtAnalytic";
             txtAnalytic.Size = new Size(290, 27);
             txtAnalytic.TabIndex = 10;
-            txtAnalytic.TextChanged += textBox1_TextChanged;
             // 
             // lblAnalytic
             // 
@@ -168,7 +163,6 @@
             lblMethod.Size = new Size(129, 20);
             lblMethod.TabIndex = 12;
             lblMethod.Text = "Metoda numerica:";
-            lblMethod.Click += label1_Click_2;
             // 
             // cmbMethod
             // 
@@ -271,7 +265,6 @@
             Controls.Add(grpInput);
             Name = "MainForm";
             Text = "Doncila Denis Lab1";
-            Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvResults).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartResults).EndInit();
             grpInput.ResumeLayout(false);
