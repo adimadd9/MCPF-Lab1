@@ -57,13 +57,15 @@ namespace SRV_Lab1.NumericMethods
 
             while (x < problem.XEnd)
             {
-                x = x + problem.Step;
+                
 
                 double f = ExpressionEvaluator.Evaluate(problem.EquationText, x, u);
 
+                x = x + problem.Step;
                 u = u + problem.Step * f;
 
                 results.Add(new ResultPoint(x, u));
+
             }
 
             return results;
