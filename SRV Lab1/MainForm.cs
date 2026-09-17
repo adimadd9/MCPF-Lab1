@@ -73,6 +73,7 @@ namespace SRV_Lab1
             {
                 0 => new EulerMethod(),
                 1 => new EulerModifiedMethod(),
+                2 => new RungeKutta4Method(),
                 _ => throw new InvalidOperationException("Undefined method")
             };
 
