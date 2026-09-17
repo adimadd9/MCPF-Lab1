@@ -1,5 +1,3 @@
-using SRV_Lab1.Utils;
-
 namespace SRV_Lab1
 {
     internal static class Program

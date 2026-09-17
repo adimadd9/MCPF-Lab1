@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SRV_Lab1.Models
+﻿namespace SRV_Lab1.Models
 {
     /// <summary>
     /// Represents a single point of the numerical solution of the Cauchy problem.

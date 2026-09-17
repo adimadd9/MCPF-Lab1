@@ -1,10 +1,5 @@
 ﻿using SRV_Lab1.Models;
 using SRV_Lab1.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SRV_Lab1.NumericMethods
 {
