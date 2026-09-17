@@ -43,6 +43,11 @@ namespace SRV_Lab1
                 MessageBox.Show("Introduceti ecuatia diferentiala.");
                 return;
             }
+            if (cmbMethod.SelectedIndex < 0)
+            {
+                MessageBox.Show("Alegeti metoda");
+                return;
+            }
             if (xEnd <= x0)
             {
                 MessageBox.Show("xEnd trebuie sa fie mai mare decat x0.");
@@ -60,8 +65,16 @@ namespace SRV_Lab1
                 AnalyticSolutionText = txtAnalytic.Text
             };
 
-            // Choose the method (for now, only Euler, hardcoded)
-            INumericMethod method = new EulerMethod();
+            //0 - Metoda Euler
+            //1 - Metoda Euler modificata
+            //2 - Metoda Runge - Kutta de ordinul 4
+
+            INumericMethod method = cmbMethod.SelectedIndex switch
+            {
+                0 => new EulerMethod(),
+                1 => new EulerModifiedMethod(),
+                _ => throw new InvalidOperationException("Undefined method")
+            };
 
             // Solving
             List<ResultPoint> results;
@@ -75,7 +88,7 @@ namespace SRV_Lab1
                 return;
             }
 
-            // Complet analytical solusion if exist
+            // Complet analytical solution if exist
             if (problem.HasAnalyticSolution)
             {
                 foreach (var point in results)

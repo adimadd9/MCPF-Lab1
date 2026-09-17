@@ -57,7 +57,6 @@ namespace SRV_Lab1.NumericMethods
 
             while (x < problem.XEnd)
             {
-                
 
                 double f = ExpressionEvaluator.Evaluate(problem.EquationText, x, u);
 
